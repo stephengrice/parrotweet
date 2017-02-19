@@ -26,6 +26,8 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
     @tweet.save
+    @tweet.twitter_id = @tweet.post_to_twitter.id
+    @tweet.save
     redirect_to tweets_path
   end
   
@@ -37,8 +39,8 @@ class TweetsController < ApplicationController
   
   def destroy
     @tweet = Tweet.find(params[:id])
-    #current_user.twitter.destroy_tweet 
-    throw :test
+    current_user.twitter.destroy_tweet(@tweet.twitter_id)
+    redirect_to tweets_path
   end
     
   private

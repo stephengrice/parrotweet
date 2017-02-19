@@ -3,7 +3,7 @@ class Tweet < ApplicationRecord
   
   validates :user_id, :body, presence: true
   
-  before_create :post_to_twitter
+  #before_create :post_to_twitter
   
   def post_to_twitter
     user.twitter.update(body)
