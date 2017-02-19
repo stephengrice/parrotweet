@@ -23,4 +23,22 @@ class ApplicationController < ActionController::Base
     result
   end
   helper_method :translate
+  
+  def getFullLanguageName(language_code)
+    case language_code
+      when "de"
+        "German"
+      when "fr"
+        "French"
+      when "no"
+        "Norwegian"
+      when "ru"
+        "Russian"
+      when "ar"
+        "Arabic"
+      else
+        language_code
+    end
+  end
+  helper_method :getFullLanguageName
 end

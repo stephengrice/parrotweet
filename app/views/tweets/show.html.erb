@@ -10,7 +10,7 @@
 
 <h2>Translations</h2>
 <% @children.each do |child| %>
-   <h3><%= child.language %></h3>
+   <h3><%= getFullLanguageName(child.language) %></h3>
   <p>
     <%= child.body %>
   </p>
