@@ -1,27 +1,89 @@
-<h1>Your ParroTweets</h1>
+<div class="row">
 
-<%= link_to 'New Tweet', new_tweet_path, class: 'btn btn-success' %>
+          <!-- Sidebar Widgets Column -->
+          <div class="col-md-3">
+            <!-- Profile Pic Well -->
+            <div class="well" style="text-align: center;">
+                <!-- Twitter avatar -->
+                <img id="avatar" src="<%= current_user.profile_image %>" width=189 height=126></img>
+                <!-- Profile stats -->
+                <div id="stats" class="row" style="margin-top: 10%;">
+                  <div class="col-md-4">
+                    <p class="statHeader">TWEETS</p><p id="numFollowing"><%= @tweets.count %></p>
+                  </div>
+                  <div class="col-md-4">
+                    <p class="statHeader">FOLLOWING</p><p id="numTweets"><%= current_user.twitter.friends.count %></p>
+                  </div>
+                  <div class="col-md-4">
+                    <p class="statHeader">FOLLOWERS</p><p id="numTweets"><%= current_user.twitter.followers.count %></p>
+                  </div>
+                </div>
 
-<table class="table">
-   <thead>
-     <tr>
-       <th></th>
-       <th></th>
-     </tr>
-   </thead>
-    <% @tweets.each do |tweet| %>
-    <% if tweet.parent_tweet_id == nil %>
-   <tr>
-     <td>
-       <%= tweet.body %> 
-     </td>
-      <td>
-       <%= link_to 'Details', tweet, class: "btn btn-primary" %>
-     </td>
-     <td>
-       <%= link_to 'Delete', tweet, method: :delete, data: {confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-     </td>
-   </tr>
-   <% end %>
-  <% end %>
-</table>
+            </div>
+
+<!-- Settings Well
+              <div class="well">
+                
+                <div class="checkbox">
+                 <label><input type="checkbox" value="">Option 1</label>
+                </div>
+                
+                <div class="checkbox">
+                 <label><input type="checkbox" value="" id="lang1">Arabic</label>
+                </div>
+                <div class="checkbox">
+                 <label><input type="checkbox" value="">German</label>
+                </div>
+                <div class="checkbox">
+                 <label><input type="checkbox" value="">Russian</label>
+                </div>
+                <div class="checkbox">
+                 <label><input type="checkbox" value="">Norweigen</label>
+                </div>
+                <div class="checkbox">
+                 <label><input type="checkbox" value="">Pirate</label>
+                </div>
+              </div>-->
+
+          </div>
+
+            <!-- Tweets Column -->
+            <div class="col-md-9">
+
+                <div class="well">
+                  <h1>My ParroTweets</h1>
+                  <div class="form-group">
+                    <form class="form-inline">
+                     <div class="form-group">
+                       <input type="text" class="form-control" id="tweet" rows="3">
+                       <!--<textarea class="form-control" rows="5" id="tweet"></textarea>-->
+                     </div>
+                     <button type="button" class="btn btn-xs btn-primary">Twitter Icon</button>
+                    </form>
+
+          
+                  </div>
+
+                
+                <%= link_to 'New Tweet', new_tweet_path, class: 'btn btn-success' %>
+
+
+                  <% @tweets.each do |tweet| %>
+                    <% if tweet.parent_tweet_id == nil %>
+                      <div class="tweet">
+                     <%= tweet.body %> 
+                     <div class="buttons">
+                        <%= link_to 'Details', tweet, class: "btn btn-primary" %>
+                         <%= link_to 'Delete', tweet, method: :delete, data: {confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+                     </div>
+
+                     </div>
+                    <% end %>
+                  <% end %>
+
+                </div>
+
+            </div>
+
+
+        </div>

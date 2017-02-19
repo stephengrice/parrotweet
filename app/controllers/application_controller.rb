@@ -41,4 +41,9 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :getFullLanguageName
+  
+  def authorize
+    redirect_to '/auth/twitter' unless current_user
+  end
+  helper_method :authorize
 end

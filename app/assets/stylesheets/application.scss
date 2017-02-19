@@ -15,3 +15,22 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+p.statHeader {
+  text-transform: uppercase;
+  font-size : 75%;
+}
+
+div.tweet {
+  padding: 2rem;
+  text-align: center;
+  div.buttons {
+    padding-top: 1rem;
+  }
+  margin: 0.5rem auto;
+  width: 75%;
+  border-radius: 2rem;
+  border: 1px solid gray;
+  background-color: white;
+}
