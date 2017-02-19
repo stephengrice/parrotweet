@@ -45,6 +45,7 @@ class TweetsController < ApplicationController
       @langTweet = Tweet.new
       @langTweet.user_id = current_user.id
       @langTweet.body = t[:translationText]
+      @langTweet.parent_tweet_id = @tweet.id
       @langTweet.save
       @langTweet.twitter_id = @langTweet.post_to_twitter.id
       @langTweet.save
