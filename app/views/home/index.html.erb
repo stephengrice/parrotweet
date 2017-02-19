@@ -1,9 +1,10 @@
 <div class="jumbotron text-center">
+  <%= image_tag "logo.png", width: 140, height: 140, style: "border-radius: 100%;" %>
   <h1>Welcome to ParroTweeter</h1>
   <p class="lead">Go from domestic to multinational in one click.</p>
   <div>
     <% if current_user %>
-      <%= link_to 'Your Tweets', tweets_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to 'Your Tweets', tweets_path, class: 'btn btn-lg btn-info' %>
     <% else %>
       <a href="/auth/twitter" class="btn btn-lg btn-primary">Sign in with Twitter</a>
     <% end %>
@@ -11,3 +12,76 @@
 
   
 </div>
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+         <%= image_tag "grow.jpg", width: 140, height: 140, style: "border-radius: 100%;" %>
+          <h2>Grow</h2>
+          <p>Find people who want your product, regardless of their preferred language.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+      <%= image_tag "connect.jpg", width: 140, height: 140, style: "border-radius: 100%;" %>
+          <h2>Connect</h2>
+          <p>Reach out to a larger customer base and accomodate a variety of cultural backgrounds.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+      <%= image_tag "develop.jpg", width: 140, height: 140, style: "border-radius: 100%;" %>
+          <h2>Develop</h2>
+          <p>Watch as your business gains momentum, using our powerful tool and analytics to break into new frontiers.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">One message. <span class="text-muted">No need to repeat yourself.</span></h2>
+          <p class="lead">All of the meaning you intend to convey can be encapsulated in the original tweet.</p>
+        </div>
+        <div class="col-md-5">
+          <%= image_tag "message.jpg", width: 400 %>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">One tweet. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">A single message is repeated in each language that you select, keeping your work to a complete minimum.</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <%= image_tag "tweet.jpg", width: 400 %>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Any language. <span class="text-muted">Easily choose among many.</span></h2>
+          <p class="lead">ParroTweet currently supports translation from English into five languages, including German, French, Norwegian, Russian, and Arabic.</p>
+        </div>
+        <div class="col-md-5">
+               <%= image_tag "language.gif", width: 500 %>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
