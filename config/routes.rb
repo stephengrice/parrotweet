@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   
   
   get '/about', to: 'home#about'
+  
+  get '/analytics', to: 'tweets#analytics'
 end

@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Analytics</h1>
+  <p><b>German:</b> <%= @german.count %> tweets</p>
+  <p><b>French:</b> <%= @french.count %> tweets</p>
+  <p><b>Norwegian:</b> <%= @norwegian.count %> tweets</p>
+  <p><b>Russian:</b> <%= @russian.count %> tweets</p>
+  <p><b>Arabic:</b> <%= @arabic.count %> tweets</p>
+  
+<h2>My Tweets by Language</h2>
+
+<div id="piechart" style="width:100%;height:100%;padding-top:2rem;"></div>
+</div>
+
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Language', 'Tweets'],
+          ['German',     <%= @german.count %>],
+          ['French',      <%= @french.count %>],
+          ['Norwegian',  <%= @norwegian.count %>],
+          ['Russian', <%= @russian.count %>],
+          ['Arabic',    <%= @arabic.count %>]
+        ]);
+
+        var options = {
+          title: '',
+          is3D: true,
+          chartArea:{left:0,top:0,width:'100%',height:'100%'}
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>

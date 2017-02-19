@@ -70,6 +70,16 @@ class TweetsController < ApplicationController
     @tweet.destroy
     redirect_to tweets_path
   end
+  
+  
+  def analytics
+    @german = Tweet.where(:language => "de")
+    @french = Tweet.where(:language => "fr")
+    @norwegian = Tweet.where(:language => "no")
+    @russian = Tweet.where(:language => "ru")
+    @arabic = Tweet.where(:language => "ar")
+  end
+  
     
   private
   def tweet_params
