@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  #before_action :set_tweet, only: [:show, :edit, :update, :destroy]
   
   #respond_to :html
   
@@ -17,8 +17,10 @@ class TweetsController < ApplicationController
     #respond_with(@tweet)
   end
   
-  def edit
-  end
+  
+  #def edit
+  #  @tweet = Tweet.find(params[:id])
+  #end
   
   def create
     @tweet = Tweet.new(tweet_params)
@@ -27,13 +29,20 @@ class TweetsController < ApplicationController
     redirect_to tweets_path
   end
   
-  def update
-    @tweet.update(tweet_params)
-    #respond_with(@tweet)
-  end
+  #def update
+  #  @tweet = Tweet.find(params[:id])
+  #  @tweet.update(tweet_params)
+  #  #respond_with(@tweet)
+  #end
   
+  def destroy
+    @tweet = Tweet.find(params[:id])
+    #current_user.twitter.destroy_tweet 
+    throw :test
+  end
+    
   private
   def tweet_params
-    params.require(:tweet).permit(:user_id, :body)
+    params.require(:tweet).permit(:id, :user_id, :body)
   end
 end

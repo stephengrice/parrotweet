@@ -1,8 +1,9 @@
 <h1>Your ParroTweets</h1>
 
+<%= link_to 'New Tweet', new_tweet_path, class: 'btn btn-primary' %>
 
 <% @tweets.each do |tweet| %>
  <div>
-   <%= tweet.body %>
+   <%= tweet.body %> <%= link_to 'Delete', tweet, method: :delete, data: {confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
  </div>
 <% end %>
