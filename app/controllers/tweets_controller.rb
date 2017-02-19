@@ -28,6 +28,7 @@ class TweetsController < ApplicationController
     # Post the original language tweet
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
+    @tweet.language = "en"
     @tweet.save
     @tweet.twitter_id = @tweet.post_to_twitter.id
     @tweet.save
@@ -43,11 +44,12 @@ class TweetsController < ApplicationController
     
     # Get translations array
     translations = getTranslations(@tweet.body, languages)
-    translations.each do |t|
+    translations.each_with_index do |t, index|
       @langTweet = Tweet.new
       @langTweet.user_id = current_user.id
       @langTweet.body = t[:translationText]
       @langTweet.parent_tweet_id = @tweet.id
+      @langTweet.language = languages[index]
       @langTweet.save
       @langTweet.twitter_id = @langTweet.post_to_twitter.id
       @langTweet.save
