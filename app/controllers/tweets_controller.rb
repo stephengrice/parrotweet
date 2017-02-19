@@ -23,11 +23,33 @@ class TweetsController < ApplicationController
   #end
   
   def create
+    # Post the original language tweet
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
     @tweet.save
     @tweet.twitter_id = @tweet.post_to_twitter.id
     @tweet.save
+    
+    # Post one for each language specified
+    languages = [] #English included by default
+    params[:languages].each do |key, val|
+      if val == "on"
+        # Key is the langauge code
+        languages.push(key)
+      end
+    end
+    
+    # Get translations array
+    translations = getTranslations(@tweet.body, languages)
+    translations.each do |t|
+      @langTweet = Tweet.new
+      @langTweet.user_id = current_user.id
+      @langTweet.body = t[:translationText]
+      @langTweet.save
+      @langTweet.twitter_id = @langTweet.post_to_twitter.id
+      @langTweet.save
+    end
+    
     redirect_to tweets_path
   end
   
