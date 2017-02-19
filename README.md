@@ -47,4 +47,6 @@ The creators of this project extend a big thanks to the faculty and students of 
 
 A large portion of this project runs on open source code. Thus, we are endlessly grateful to the hundreds of programmers who came together to create the underlying software that made ParroTweet possible. Thank you.
 
+Free stock iamges for this project were obtained from [FreeImages.co.uk](http://www.freeimages.co.uk/).
+
 Finally, [this RailsCast](https://www.youtube.com/watch?v=vFiblY5KUZE) was invaluable in connecting our application to the Twitter API. We highly recommend it to anyone attempting to solve related problems.
