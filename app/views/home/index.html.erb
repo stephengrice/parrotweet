@@ -1,11 +1,13 @@
-<div>
+<div class="jumbotron text-center">
   <h1>Welcome to ParroTweeter</h1>
   <p class="lead">Go from domestic to multinational in one click.</p>
-  
-  <% if current_user %>
-    <%= link_to 'Your Tweets', tweets_path, class: 'btn btn-primary' %>
-  <% else %>
-    <a href="/auth/twitter" class="btn btn-primary">Sign in with Twitter</a>
-  <% end %>
+  <div>
+    <% if current_user %>
+      <%= link_to 'Your Tweets', tweets_path, class: 'btn btn-lg btn-primary' %>
+    <% else %>
+      <a href="/auth/twitter" class="btn btn-lg btn-primary">Sign in with Twitter</a>
+    <% end %>
+  </div>
+
   
 </div>

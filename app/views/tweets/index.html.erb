@@ -2,8 +2,21 @@
 
 <%= link_to 'New Tweet', new_tweet_path, class: 'btn btn-primary' %>
 
-<% @tweets.each do |tweet| %>
- <div>
-   <%= tweet.body %> <%= link_to 'Delete', tweet, method: :delete, data: {confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
- </div>
-<% end %>
+<table class="table">
+   <thead>
+     <tr>
+       <th></th>
+       <th></th>
+     </tr>
+   </thead>
+    <% @tweets.each do |tweet| %>
+   <tr>
+     <td>
+       <%= tweet.body %> 
+     </td>
+     <td>
+       <%= link_to 'Delete', tweet, method: :delete, data: {confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+     </td>
+   </tr>
+  <% end %>
+</table>

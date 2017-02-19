@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   #respond_to :html
   
   def index
-    @tweets = Tweet.where(:user_id => current_user.id)
+    @tweets = Tweet.where(:user_id => current_user.id).order(created_at: :desc)
     #respond_with(@tweets)
   end
   
