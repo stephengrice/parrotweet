@@ -1,0 +1,16 @@
+<h1>Tweet Details</h1>
+
+
+<h2>Original Tweet</h2>
+
+<p>
+  <%= @tweet.body %>
+</p>
+
+
+<h2>Translations</h2>
+<% @children.each do |child| %>
+  <p>
+    <%= child.body %>
+  </p>
+<% end %>

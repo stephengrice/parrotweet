@@ -9,7 +9,9 @@ class TweetsController < ApplicationController
   end
   
   def show
-    respond_with(@tweet)
+    @tweet = Tweet.find(params[:id])
+    @children = Tweet.where(:parent_tweet_id => @tweet.id)
+    #respond_with(@tweet)
   end
   
   def new

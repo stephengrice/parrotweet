@@ -1,6 +1,6 @@
 <h1>Your ParroTweets</h1>
 
-<%= link_to 'New Tweet', new_tweet_path, class: 'btn btn-primary' %>
+<%= link_to 'New Tweet', new_tweet_path, class: 'btn btn-success' %>
 
 <table class="table">
    <thead>
@@ -10,13 +10,18 @@
      </tr>
    </thead>
     <% @tweets.each do |tweet| %>
+    <% if tweet.parent_tweet_id == nil %>
    <tr>
      <td>
        <%= tweet.body %> 
+     </td>
+      <td>
+       <%= link_to 'Details', tweet, class: "btn btn-primary" %>
      </td>
      <td>
        <%= link_to 'Delete', tweet, method: :delete, data: {confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
      </td>
    </tr>
+   <% end %>
   <% end %>
 </table>
