@@ -47,7 +47,7 @@ class TweetsController < ApplicationController
     translations.each_with_index do |t, index|
       @langTweet = Tweet.new
       @langTweet.user_id = current_user.id
-      @langTweet.body = t[:translationText]
+      @langTweet.body = t["translationText"]
       @langTweet.parent_tweet_id = @tweet.id
       @langTweet.language = languages[index]
       @langTweet.save

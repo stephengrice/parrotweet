@@ -9,8 +9,10 @@ class ApplicationController < ActionController::Base
   def getTranslations(tweet, languages)
     result = []
     languages.each do |lang|
-      myText = "translation of " +tweet+ " to " + lang
-      result.push({translationText: myText})
+      myText = "translation of " +tweet+ " to " + lang.to_s
+      response = open('http://transltr.org/api/translate?text=' + tweet + '&to=' + lang.to_s + "&from=en").read
+      json = JSON.parse(response)#response.to_sym
+      result.push(json)
     end
     result
   end
