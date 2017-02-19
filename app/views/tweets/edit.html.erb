@@ -1,0 +1,12 @@
+<h1>Edit ParroTweet</h1>
+
+
+<%= form_for @tweet do |f| %>
+
+
+<%= f.label :body %>
+<%= f.text_field @tweet.body %>
+
+<%= f.submit %>
+
+<% end %>

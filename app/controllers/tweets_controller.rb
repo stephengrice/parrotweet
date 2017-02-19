@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   #respond_to :html
   
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.where(:user_id => current_user.id)
     #respond_with(@tweets)
   end
   
@@ -24,7 +24,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
     @tweet.save
-    #respond_with(@tweet)
+    redirect_to tweets_path
   end
   
   def update
