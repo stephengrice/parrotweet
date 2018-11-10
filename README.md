@@ -50,3 +50,8 @@ A large portion of this project runs on open source code. Thus, we are endlessly
 Free stock iamges for this project were obtained from [FreeImages.co.uk](http://www.freeimages.co.uk/).
 
 Finally, [this RailsCast](https://www.youtube.com/watch?v=vFiblY5KUZE) was invaluable in connecting our application to the Twitter API. We highly recommend it to anyone attempting to solve related problems.
+
+
+# Notes
+
+We originally researched implementing this project in Java. We used cloned https://github.com/heroku/devcenter-spring-mvc-hibernate.git into parrotweet-java but never wrote any code with it.
